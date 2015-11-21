@@ -4,8 +4,6 @@
 
 *EarthOne's version of a mostly reasonable approach to JavaScript*
 
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-
 Other Style Guides
  - [ES5](es5/)
  - [React](react/)
