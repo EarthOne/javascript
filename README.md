@@ -2257,7 +2257,7 @@ Other Style Guides
 
 ## Contributors
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [View Contributors](https://github.com/EarthOne/javascript/graphs/contributors)
 
 
 ## License

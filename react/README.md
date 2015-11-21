@@ -1,12 +1,13 @@
-# Airbnb React/JSX Style Guide
+# EarthOne React/JSX Style Guide
 
-*A mostly reasonable approach to React and JSX*
+*EarthOne's version of a mostly reasonable approach to React and JSX*
 
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
+  1. [Component Organization](#component-organization)
   1. [Alignment](#alignment)
   1. [Quotes](#quotes)
   1. [Spacing](#spacing)
@@ -89,6 +90,62 @@
     }
     ```
 
+## Component Organization
+  * class definition
+  * constructor
+    * event handlers
+  * 'component' lifecycle events
+  * getters
+  * render
+  * defaultProps
+  * proptypes
+
+  ```javascript
+  class Person extends React.Component {
+    constructor (props) {
+      super(props);
+
+      this.state = { smiling: false };
+
+      this.handleClick = () => {
+        this.setState({smiling: !this.state.smiling});
+      };
+    }
+
+    componentWillMount () {
+      // add event listeners (Flux Store, WebSocket, document, etc.)
+    },
+
+    componentDidMount () {
+      // React.getDOMNode()
+    },
+
+    componentWillUnmount () {
+      // remove event listeners (Flux Store, WebSocket, document, etc.)
+    },
+
+    get smilingMessage () {
+      return (this.state.smiling) ? "is smiling" : "";
+    }
+
+    render () {
+      return (
+        <div onClick={this.handleClick}>
+          {this.props.name} {this.smilingMessage}
+        </div>
+      );
+    },
+  }
+
+  Person.defaultProps = {
+    name: 'Guest'
+  };
+
+  Person.propTypes = {
+    name: React.PropTypes.string
+  };
+  ```
+
 ## Alignment
   - Follow these alignment styles for JSX syntax
 
@@ -154,6 +211,8 @@
 
 ## Props
   - Always use camelCase for prop names.
+  - Wrap props  on newlines for 2 or more.
+
     ```javascript
     // bad
     <Foo
@@ -166,6 +225,25 @@
       userName="hello"
       phoneNumber={12345678}
     />
+    ```
+
+    ```javascript
+    // bad
+    <Person
+     firstName="Michael" />
+
+    // good
+    <Person firstName="Michael" />
+
+    // bad
+    <Person firstName="Michael" lastName="Chan" occupation="Designer" favoriteFood="Drunken Noodles" />
+
+    // good
+    <Person
+     firstName="Michael"
+     lastName="Chan"
+     occupation="Designer"
+     favoriteFood="Drunken Noodles" />    
     ```
 
 ## Parentheses
