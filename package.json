@@ -1,14 +1,14 @@
 {
-  "name": "airbnb-style",
+  "name": "earthone-style",
   "version": "2.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
+    "publish-all": "npm publish && cd ./packages/eslint-config-earthone && npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/EarthOne/javascript.git"
   },
   "keywords": [
     "style guide",
@@ -17,12 +17,16 @@
     "es6",
     "es2015",
     "react",
-    "jsx"
+    "jsx",
+    "earthone"
   ],
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "contributors": [
+    "Tushar Agarwal <niftytushar@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/EarthOne/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/EarthOne/javascript"
 }
