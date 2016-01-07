@@ -18,6 +18,7 @@
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [Use CSS Modules](#use-css-modules)
 
 ## Basic Rules
 
@@ -484,5 +485,56 @@
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
   eslint rules: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md).
+
+## Use CSS Modules
+  * Use CSS Modules<br>
+    This will allow using short CSS class names and at the same time avoid conflicts.
+  * Keep CSS simple and declarative. Avoid loops, mixins etc.
+  * Feel free to use variables in CSS via [precss](https://github.com/jonathantneal/precss) plugin for [PostCSS](https://github.com/postcss/postcss)
+  * Prefer CSS class selectors instead of element and `id` selectors (see [BEM](https://bem.info/))
+  * Avoid nested CSS selectors (see [BEM](https://bem.info/))
+  * When in doubt, use `.root { }` class name for the root elements of your components
+
+  ```scss
+  // Navigation.scss
+  @import '../variables.scss';
+
+  .root {
+    width: 300px;
+  }
+
+  .items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+  }
+
+  .item {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .link {
+    display: block;
+    padding: 0 25px;
+    outline: 0;
+    border: 0;
+    color: $default-color;
+    text-decoration: none;
+    line-height: 25px;
+    transition: background-color .3s ease;
+
+    &,
+    .items:hover & {
+      background: $default-bg-color;
+    }
+
+    .selected,
+    .items:hover &:hover {
+      background: $active-bg-color;
+    }
+  }
+  ```
 
 **[⬆ back to top](#table-of-contents)**
